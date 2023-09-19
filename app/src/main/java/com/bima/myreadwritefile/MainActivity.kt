@@ -3,6 +3,7 @@ package com.bima.myreadwritefile
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.bima.myreadwritefile.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -19,11 +20,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.buttonSave.setOnClickListener(this)
     }
 
-    override fun onClick(p0: View?) {
+    override fun onClick(view: View) {
         when (view.id) {
-            R.id.button_new ->
+            R.id.button_new -> newFile()
             R.id.button_open ->
             R.id.button_save ->
         }
+    }
+
+    private fun newFile() {
+        binding.editTitle.setText("")
+        binding.editFile.setText("")
+        Toast.makeText(this, "Clearing file", Toast.LENGTH_SHORT).show()
     }
 }
